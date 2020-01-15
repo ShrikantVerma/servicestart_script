@@ -1,0 +1,5 @@
+#!/bin/bash
+export http_proxy="http://A1WP7HPD:new%402020@airtelproxy.airtel.com:4145"
+export https_proxy="https://A1WP7HPD:new%402020@airtelproxy.airtel.com:4145"
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.4.2-x86_64.rpm --no-check-certificate
+rpm -ivh elasticsearch-7.4.2-x86_64.rpm
