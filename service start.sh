@@ -27,15 +27,15 @@ NOW=$(date +"%Y-%m-%d")
 DATETIME=$(date +"%d-%m-%Y-%H:%M:%S")
 LOGFILE=/home/resolve/runningStatus.log
 output=UP
-/opt/resolve/bin/status.sh | awk -F':' '{print $1}' > component.txt
+/opt/enablegrafana/bin/status.sh | awk -F':' '{print $1}' > component.txt
 
 cat component.txt | while read component
 do
-status=`/opt/resolve/bin/status.sh | grep $component | awk '{print $2}'`
+status=`/opt/grafana/bin/status.sh | grep $component | awk '{print $2}'`
 
         if [ "$output" == "$status" ]
  then
-        pid=`/opt/resolve/bin/status.sh | grep $component |  awk '{print $4}'`
+        pid=`/opt/grafana/bin/status.sh | grep $component |  awk '{print $4}'`
         #uptime=`ps -p $pid -o etimes | awk "NR==2"`
         uptime=`ps -p $pid -o etimes | awk 'NR==2{print $1}'`
 
